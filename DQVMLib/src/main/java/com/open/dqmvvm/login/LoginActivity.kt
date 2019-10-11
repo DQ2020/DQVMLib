@@ -3,6 +3,7 @@ package com.open.dqmvvm.login
 import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.open.dqmvvm.BR
 import com.open.dqmvvm.R
 import com.open.dqmvvm.base.BaseActivity
 import com.open.dqmvvm.databinding.ActivityLoginBinding

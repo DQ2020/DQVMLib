@@ -6,7 +6,7 @@ import com.open.dqmvvm.login.User
 import com.open.dqmvvm.login.UserDao
 
 
-@Database(entities = [User::class], version = 4)
+@Database(entities = [User::class], version = 1)
 abstract class AppDataBase : RoomDatabase() {
     abstract fun userDao(): UserDao
 }

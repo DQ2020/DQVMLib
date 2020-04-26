@@ -30,7 +30,7 @@ object SPUtil {
                 is Boolean -> putBoolean(key, value)
                 is Float -> putFloat(key, value)
                 is Long -> putLong(key, value)
-                else -> L.e("SPUtil::unKnown data!")
+                else -> L.e("SPUtil::unKnown data type!")
             }
             apply()
         }

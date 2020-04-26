@@ -1,9 +1,11 @@
 package com.open.dqmvvm.main
 
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.open.dqmvvm.R
 import com.open.dqmvvm.base.BaseActivity
 import com.open.dqmvvm.databinding.ActivityMainBinding
+import com.open.dqmvvm.log.L
 import com.open.dqmvvm.login.LoginVM
 import com.open.dqmvvm.util.DBUtil
 import kotlinx.android.synthetic.main.activity_main.*
@@ -15,7 +17,7 @@ class MainActivity : BaseActivity<ActivityMainBinding,LoginVM>() {
     }
 
     override fun getViewModel(): LoginVM {
-        return ViewModelProviders.of(this).get(LoginVM::class.java)
+        return ViewModelProvider(this)[LoginVM::class.java]
     }
 
     override fun init() {
@@ -25,5 +27,8 @@ class MainActivity : BaseActivity<ActivityMainBinding,LoginVM>() {
             sb.append(u.toString()).append("\n")
         }
         show.text = sb.toString()
+
+
+        L.d(intent.getStringExtra("param1")!!)
     }
 }

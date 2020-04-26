@@ -1,3 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="Labels">
+        <attr name="textSize" format="float"/>
+        <attr name="labelPadding" format="float"/>
+        <attr name="viewPadding" format="float"/>
+        <attr name="space" format="float"/>
+        <attr name="textColor" format="reference"/>
+        <attr name="labelColor" format="reference"/>
+        <attr name="labelColor2" format="reference"/>
+        <attr name="labelColor3" format="reference"/>
+        <attr name="labelColor4" format="reference"/>
+        <attr name="labelColor5" format="reference"/>
+        <attr name="labelText" format="string"/>
+        <attr name="labelText2" format="string"/>
+        <attr name="labelText3" format="string"/>
+        <attr name="labelText4" format="string"/>
+        <attr name="labelText5" format="string"/>
+    </declare-styleable>
 </resources>

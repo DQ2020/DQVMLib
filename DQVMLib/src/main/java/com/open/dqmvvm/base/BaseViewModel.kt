@@ -1,6 +1,5 @@
 package com.open.dqmvvm.base
 
-import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
@@ -11,14 +10,10 @@ open class BaseViewModel : ViewModel() {
     }
 
     val next by lazy {
-        MutableLiveData<Bundle>()
+        MutableLiveData<Map<String, Any>>()
     }
 
-    fun startActivity() {
-        startActivity(null)
-    }
-
-    fun startActivity(bundle: Bundle?) {
-        next.postValue(bundle)
+    fun startActivity(map: Map<String, Any>?) {
+        next.postValue(map)
     }
 }

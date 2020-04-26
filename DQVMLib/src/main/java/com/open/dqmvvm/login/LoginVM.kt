@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.open.dqmvvm.base.BaseViewModel
 import com.open.dqmvvm.constant.Constant
 import com.open.dqmvvm.log.L
+import com.open.dqmvvm.main.MainActivity
 import com.open.dqmvvm.util.SPUtil
 import org.json.JSONObject
 
@@ -39,6 +40,9 @@ class LoginVM : BaseViewModel() {
         json.put("remPwd", remPwd.value)
         L.d(json.toString())
         SPUtil.setValue(Constant.USER_INFO, json.toString())
-        startActivity()
+        val map = HashMap<String,Any>()
+        map["class"] = MainActivity::class.java
+        map["param1"] = "this is first param"
+        startActivity(map)
     }
 }

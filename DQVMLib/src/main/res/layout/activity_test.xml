@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".test.TestActivity">
 
-    <com.open.dqmvvm.v.Labels
-        android:id="@+id/labels"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:textColor="@color/white"
-        app:labelColor="@color/colorPrimary"
-        app:labelColor2="@color/colorAccent"
-        app:labelPadding="20"
-        app:viewPadding="20"
-        app:textSize="30"
-        app:space="20"/>
-</RelativeLayout>
+    <data>
+        <variable
+            name="test"
+            type="com.open.dqmvvm.test.TestVM" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.open.dqmvvm.v.Labels
+            android:id="@+id/labels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:labelColor="@color/colorPrimary"
+            app:labelColor2="@color/colorAccent"
+            app:labelPadding="20"
+            app:space="20"
+            app:textColor="@color/white"
+            app:textSize="30"
+            app:viewPadding="20"
+            app:labelText="@{test.label}"/>
+    </RelativeLayout>
+
+</layout>

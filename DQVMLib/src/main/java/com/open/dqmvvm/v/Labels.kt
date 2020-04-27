@@ -37,6 +37,10 @@ class Labels : View {
         L.d("paint.viewPadding${viewPadding}")
         space = atts.getFloat(R.styleable.Labels_space, 30f)
         L.d("paint.space${space}")
+        val label = atts.getString(R.styleable.Labels_labelText)
+        if (null != label){
+            labels = listOf(label)
+        }
         atts.recycle()
     }
 

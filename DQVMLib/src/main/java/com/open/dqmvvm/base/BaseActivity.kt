@@ -10,7 +10,6 @@ import com.open.dqmvvm.BR
 import com.open.dqmvvm.log.L
 import com.open.dqmvvm.util.ILoading
 import com.open.dqmvvm.util.Loading
-import org.jetbrains.anko.startActivity
 
 abstract class BaseActivity<BD : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity(), ILoading {
     lateinit var bind: BD
@@ -22,17 +21,13 @@ abstract class BaseActivity<BD : ViewDataBinding, VM : BaseViewModel> : AppCompa
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bind = DataBindingUtil.setContentView(this, getView())
-        bind.setVariable(BR.viewModel, vm)
+        bind.setVariable(getVmId(), vm)
         ui()
         init()
     }
 
     abstract fun getView(): Int
-
-    open fun getVmId(): Int {
-        return BR.viewModel
-    }
-
+    abstract fun getVmId(): Int
     abstract fun getViewModel(): VM
     abstract fun init()
 

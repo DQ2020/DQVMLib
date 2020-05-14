@@ -6,17 +6,15 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class User(
-        val firstName: String?,
-        val lastName: String?,
+        val account: String?,
+        val password: String?,
+        val remPwd:Boolean,
+        val name:String,
         val age: Int,
         @Embedded val wife: Wife?
 ) {
     @PrimaryKey(autoGenerate = true)
-    var uid: Int = 0
-
-    override fun toString(): String {
-        return "UID:$uid\nF:$firstName\nL:$lastName\nAge:$age\nWife:${wife?.name}"
-    }
+    var id: Int = 0
 }
 
-data class Wife(val name: String?,val w_age: Int)
+data class Wife(val w_name: String?,val w_age: Int)

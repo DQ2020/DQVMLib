@@ -1,10 +1,10 @@
 package com.open.dqmvvm.login
 
-import androidx.databinding.BaseObservable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-class LoginM{
-
-    fun login(){
-
-    }
+@Entity
+data class LoginM(val account:String, val password:String,val boolean:Int){
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
 }

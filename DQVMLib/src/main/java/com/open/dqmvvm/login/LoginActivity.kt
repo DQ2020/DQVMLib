@@ -1,13 +1,11 @@
 package com.open.dqmvvm.login
 
-import android.content.Intent
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.open.dqmvvm.BR
 import com.open.dqmvvm.R
 import com.open.dqmvvm.base.BaseActivity
 import com.open.dqmvvm.databinding.ActivityLoginBinding
-import com.open.dqmvvm.main.MainActivity
 
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginVM>() {
 
@@ -15,16 +13,18 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginVM>() {
         return R.layout.activity_login
     }
 
+    override fun getVmId(): Int {
+        return BR.viewModel
+    }
+
     override fun getViewModel(): LoginVM {
-        return ViewModelProviders.of(this).get(LoginVM::class.java)
+        return ViewModelProvider(this)[LoginVM::class.java]
     }
 
     override fun init() {
-        vm.result.observe(this, Observer { result ->
-            if (result) {
-                startActivity(Intent(this@LoginActivity,MainActivity::class.java))
-                finish()
-            }
+        vm.remPwd.observe(this, Observer {
+
         })
     }
+
 }

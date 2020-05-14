@@ -1,0 +1,10 @@
+1.
+apply plugin: 'com.android.library'
+or
+apply plugin: 'com.android.application'
+
+2.
+applicationId "com.open.dqmvvm"
+or
+//applicationId "com.open.dqmvvm"
+

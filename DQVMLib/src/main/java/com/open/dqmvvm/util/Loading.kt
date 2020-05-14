@@ -6,6 +6,7 @@ import android.widget.ProgressBar
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import com.open.dqmvvm.R
+import com.open.dqmvvm.log.L
 
 class Loading(context: Context) : AlertDialog(context, R.style.tranAlertDialog), DefaultLifecycleObserver {
 

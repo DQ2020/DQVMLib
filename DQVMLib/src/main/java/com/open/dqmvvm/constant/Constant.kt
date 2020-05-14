@@ -1,6 +1,6 @@
 package com.open.dqmvvm.constant
 
 object Constant{
-    const val REMEMBER_ACCOUNT = "REMEMBER_ACCOUNT"
-    const val REMEMBER_PASSWORD = "REMEMBER_PASSWORD"
+    const val TAG = "DQ2020"
+    const val USER_INFO = "USER_INFO"
 }

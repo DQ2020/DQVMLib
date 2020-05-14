@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@mipmap/ic_login" />
+            android:src="@drawable/ic_login" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -31,11 +31,11 @@
 
             <ImageView
                 android:id="@+id/icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher"
-                android:layout_marginTop="60dp"
+                android:src="@drawable/ic_logo"
+                android:layout_marginTop="100dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -64,10 +64,9 @@
                 android:checkMark="?android:attr/listChoiceIndicatorMultiple"
                 app:layout_constraintEnd_toEndOf="@+id/passwordV"
                 app:layout_constraintTop_toBottomOf="@+id/passwordV"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:text="记住密码"
-                vm="@{viewModel}"
-                android:checked="@={viewModel.rememberAccountAndPassword}"/>
+                android:checked="@={viewModel.remPwd}"/>
 
             <EditText
                 android:id="@+id/passwordV"
@@ -78,6 +77,11 @@
                 android:background="#22000000"
                 android:padding="10dp"
                 android:text="@={viewModel.password}"
+                android:hint="请输入密码"
+                android:inputType="numberPassword"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:maxLength="20"
                 app:layout_constraintBottom_toBottomOf="@+id/password"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/password"
@@ -94,6 +98,10 @@
                 android:background="#22000000"
                 android:padding="10dp"
                 android:text="@={viewModel.account}"
+                android:hint="请输入用户名"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:maxLength="20"
                 app:layout_constraintBottom_toBottomOf="@+id/name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/name"
@@ -105,7 +113,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="60dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="60dp"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="账号"

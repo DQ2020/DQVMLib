@@ -1,0 +1,18 @@
+1.IPC 进程间通信（cs架构）
+2.IOC(ioctl，input/output control) 用户空间与内核空间交互方式
+3.进程内存分为用户空间和内核空间，内核空间进程间共享，用户控件独立
+4.client server serviceManager 属于用户空间，binder驱动属于内核空间
+5.server向注册serviceManager注册服务，client通过serviceManager获取服务（serviceManager看似隐形了）
+6.通过serviceConnection获取到binder对象调用对应方法，
+  如果是同一进程返回本地服务不通过IPC,否则返回proxy binder对象，也就是远程另外一个进程的binder对象
+7.进程间引用类型传输需要序列化，Parcelable 比 Serializable 高效 安全 （实现复杂一点）
+8.进程间通信流程
+8.1客户端通过service获取到binder(6)
+8.2通过binder的queryLocalInterface方法判断是否同一进程
+8.3同一个进程直接强转成对应接口
+8.4非同进程表示获取到的为代理binder
+8.5代理binder打包序列化参数通过binder驱动传递至server进程解包（即porxy类中的iBinder.transact（）方法作用）
+8.6server进程获取到参数再打包返回值（warp parcel）通过binder驱动返回
+8.7代理binger解包返回值
+8.8至此客户端获取到返回结果
+8.9进程间通信完成

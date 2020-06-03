@@ -1,0 +1,13 @@
+1.启动DataBinding
+    android {
+        dataBinding {
+            enabled true
+        }
+    }
+    kapt {
+        generateStubs = true
+    }
+2.liveData双向绑定需设置生命周期
+    BaseActivity{
+        bind.lifecycleOwner = this
+    }

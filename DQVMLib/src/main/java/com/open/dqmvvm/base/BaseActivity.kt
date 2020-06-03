@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
-import com.open.dqmvvm.BR
 import com.open.dqmvvm.log.L
 import com.open.dqmvvm.util.ILoading
 import com.open.dqmvvm.util.Loading
@@ -21,6 +20,7 @@ abstract class BaseActivity<BD : ViewDataBinding, VM : BaseViewModel> : AppCompa
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bind = DataBindingUtil.setContentView(this, getView())
+        bind.lifecycleOwner = this
         bind.setVariable(getVmId(), vm)
         ui()
         init()

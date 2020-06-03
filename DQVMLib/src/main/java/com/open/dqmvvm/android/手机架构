@@ -1,0 +1,5 @@
+application
+framework(all kinds of manager)
+library(webkit,openGL,sqlite...)
+library-android-runtime(dalvik,core library)
+linux

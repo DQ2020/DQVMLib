@@ -1,5 +1,4 @@
-//apply plugin: 'com.android.library'
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 apply plugin: 'kotlin-android'
 
@@ -17,7 +16,6 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.open.dqmvvm"
         minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
@@ -43,6 +41,10 @@ android {
 
 kapt {
     generateStubs = true
+
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
 }
 
 dependencies {
@@ -54,7 +56,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-common-java8:2.2.0'
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.core:core-ktx:1.3.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
     implementation 'com.squareup.retrofit2:retrofit:2.6.0'
@@ -65,4 +67,6 @@ dependencies {
     implementation "androidx.room:room-rxjava2:$room_version"
     implementation "androidx.room:room-guava:$room_version"
     testImplementation "androidx.room:room-testing:$room_version"
+    implementation "com.alibaba:arouter-api:1.5.0"
+    kapt "com.alibaba:arouter-compiler:1.2.2"
 }

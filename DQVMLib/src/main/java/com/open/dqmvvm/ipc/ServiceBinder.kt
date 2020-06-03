@@ -19,7 +19,6 @@ class ServiceBinder : Binder(), IIpc {
         const val DESCRIPTOR = "com.open.dqmvvm.ipc.IIpc"
     }
 
-
     init {
         attachInterface(this, DESCRIPTOR)
     }

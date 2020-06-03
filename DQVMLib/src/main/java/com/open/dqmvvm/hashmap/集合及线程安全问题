@@ -1,0 +1,70 @@
+集合
+    Map
+        HashMap
+            1.键值对形式
+            2.无序 (指存储和遍历读取顺序不一致，非存储地址无序或每次读取无序)
+            3.允许null键和null值
+            4.key不可重复（null键最多一个）value可重复
+            5.线程不安全
+            6.数据结构
+            6.1长度默认为16的entry[]
+            6.2entry[]中存储长度默认为8的链表的头元素
+            6.3扩容 链表长度变为2n
+            6.4jdk1.8后 扩容为 链表长度超过8变为红黑树（插入删除性能高，查询一般）
+            7.多线程可使用ConcurrentHashMap或者Collections.synchronizedMap()加锁
+        LinkedHashMap
+            1.比HashMap Entry变成了双向列表,不光有next还添加了before和after
+            1.1next为同一数组中单向链表的顺序指向 a[0][0]->a[0][8]
+            1.2before和after为双向链表顺序，即a[0][0]->a[1][0]-a[8][0]-a[0][1]-a[1][1]-a[8][1]-a[8][8]
+        HashTable
+            1.键值均不可null
+            2.线程安全
+        TreeMap
+            1.自动排序（Ascll码升序）
+
+    Collection
+        List
+            ArrayList
+                1.动态数组 可变长
+                2.可重复
+                3.线程不安全
+            LinkedList
+                1.双向链表
+                2.可重复
+                3.线程不安全
+                4.对比ArrayList 插入删除高效 读取存储低效（相对）
+            Vector
+                1.线程安全
+                2.加了锁 效率低
+                3.方法加锁 迭代器未加锁 要保证线程一致 需另外加锁
+            CopyOnWriteArrayList
+                1.线程安全
+                2.只能有一个写线程 可多个读线程
+                3.写线程完毕之前 读到的都是旧list
+                4.缺点 写时复制list造成内存占用 没办法保证实时数据的一致性 只能保证最终数据的一致性
+            Collections.synchronizedList()
+                1.线程安全
+                2.加了锁 效率低
+                3.方法加锁 迭代器未加锁 要保证线程一致 需另外加锁
+                4.这是一个使list线程安全的方法 不是集合
+        Set
+            HashSet
+                1.内部维护hashMap
+                2.使用hashMap的key位置，value为new Object()
+                3.不可重复，因为hashMap key唯一 所以确保set唯一性（map唯一性add时判断）
+            TreeSet
+                1.自动排序（Ascll码升序）
+
+数组和链表
+数组存储地址空间连续 易寻址难插入删除
+链表存储地址空间离散 难寻址易插入删除 next指针导向
+
+数组和集合
+    长度
+        数组固定
+        集合可变
+    存储类型
+        数组
+            基本类型+引用（存地址）
+        集合
+            引用类型 基本类型装箱存储

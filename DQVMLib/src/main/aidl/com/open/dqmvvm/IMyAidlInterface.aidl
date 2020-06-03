@@ -1,15 +1,7 @@
-// IMyAidlInterface.aidl
 package com.open.dqmvvm;
 
-// Declare any non-default types here with import statements
+import com.open.dqmvvm.ipc.AidlData;
 
 interface IMyAidlInterface {
-    /**
-     * Demonstrates some basic types that you can use as parameters
-     * and return values in AIDL.
-     */
-    void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat,
-            double aDouble, String aString);
-
-    String initString();
+    AidlData getAidlData();
 }

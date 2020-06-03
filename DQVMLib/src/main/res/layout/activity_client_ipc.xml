@@ -4,6 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ipc.ClientIpc">
+    tools:context=".ipc.ClientIPCActivity">
+
+    <Button
+        android:id="@+id/binder"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="binder"/>
+
+    <Button
+        android:id="@+id/aidl"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/binder"
+        android:text="aidl"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

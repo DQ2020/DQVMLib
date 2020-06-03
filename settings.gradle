@@ -1,1 +1,2 @@
 include ':DQVMLib'
+include ':DQTEST'

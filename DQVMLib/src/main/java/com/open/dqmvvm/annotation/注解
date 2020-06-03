@@ -1,0 +1,27 @@
+注解：
+    @Target 注解位置
+        TYPE 类，接口,枚举
+        FIELD 成员变量
+        METHOD 方法
+        PARAMETER 参数
+        ... ...(参考ElementType类)
+
+    @Retention  注解的生命周期
+        SOURCE 注解将被编译器丢弃
+        CLASS 注解在class文件中可用，但会被JVM丢弃
+        RUNTIME JVM将在运行期也保留注释，因此可以通过反射机制读取注解的信息（常用）
+
+    @Documented 指示将此注解包含在 javadoc 中
+    @Inherited 指示允许子类继承父类中的注解
+
+
+注解只是一个简单的标识手段，配合反射使用，构建各种功能
+通过反射查询是否存在某个注解以及注解的值
+利用反射对类的成员变量，方法等搭配注解的值做一些功能逻辑处理
+本包实现类似springboot@autowired注解功能，利用注解值自动实例化含有@Init注解的成员变量Data
+
+@Init(str = "hello,", num = 2020)
+private Data data;
+
+print:Data`s data is hello,2020
+

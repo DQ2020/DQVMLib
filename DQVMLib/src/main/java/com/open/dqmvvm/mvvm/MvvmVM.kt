@@ -1,7 +1,11 @@
 package com.open.dqmvvm.mvvm
 
+import androidx.lifecycle.MutableLiveData
 import com.open.dqmvvm.base.BaseViewModel
 
 class MvvmVM : BaseViewModel(){
-    var text = ""
+
+    val text by lazy {
+        MutableLiveData<String>()
+    }
 }

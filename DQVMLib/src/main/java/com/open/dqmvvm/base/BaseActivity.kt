@@ -53,7 +53,7 @@ abstract class BaseActivity<BD : ViewDataBinding, VM : BaseViewModel> : AppCompa
                 }
             }
             startActivity(intent)
-            if (null == map["exit"] || map["exit"] as Boolean) finish()
+            if (null != map["exit"] && !(map["exit"] as Boolean)) finish()
         })
         lifecycle.addObserver(loading!!)
     }

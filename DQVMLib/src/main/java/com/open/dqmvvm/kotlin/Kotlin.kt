@@ -60,7 +60,7 @@ fun quickSort(arr: IntArray, s: Int, e: Int) {
 
     OkHttpClient.Builder().build().newCall(null).enqueue(null)
 
-    Retrofit.Builder().build().create(INet::class.java).baidu()
+//    Retrofit.Builder().build().create(INet::class.java).baidu()
 
     Observable.just("1").observeOn(Schedulers.newThread()).subscribe()
 }

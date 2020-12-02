@@ -1,8 +1,10 @@
 package com.open.dqmvvm.base;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -47,6 +49,11 @@ public abstract class BaseRvAdapter<T> extends RecyclerView.Adapter<BaseHolder> 
     }
 
     public abstract int initLayout(int type);
+
+    public void addItem(T item){
+        items.add(item);
+        notifyDataSetChanged();
+    }
 
     public void addItems(List<T> item){
         items.addAll(item);

@@ -14,7 +14,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginVM>() {
     }
 
     override fun getVmId(): Int {
-        return BR.viewModel
+        return BR.login
     }
 
     override fun getViewModel(): LoginVM {

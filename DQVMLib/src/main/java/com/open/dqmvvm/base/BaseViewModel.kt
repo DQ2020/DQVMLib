@@ -5,6 +5,10 @@ import androidx.lifecycle.ViewModel
 
 open class BaseViewModel : ViewModel() {
 
+    val title by lazy{
+        MutableLiveData("")
+    }
+
     val loading by lazy {
         MutableLiveData(false)
     }

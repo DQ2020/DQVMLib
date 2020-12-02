@@ -5,7 +5,7 @@
     tools:context=".login.LoginActivity">
     <data>
         <variable
-            name="viewModel"
+            name="login"
             type="com.open.dqmvvm.login.LoginVM" />
     </data>
 
@@ -31,6 +31,7 @@
 
             <ImageView
                 android:id="@+id/icon"
+                android:transitionName="@string/app_name"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:scaleType="centerCrop"
@@ -50,7 +51,7 @@
                 android:minWidth="200dp"
                 android:layout_marginBottom="100dp"
                 android:text="登录"
-                android:onClick="@{()-> viewModel.login()}"
+                android:onClick="@{()-> login.login()}"
                 android:textColor="#ffffff"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +67,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/passwordV"
                 android:layout_marginTop="20dp"
                 android:text="记住密码"
-                android:checked="@={viewModel.remPwd}"/>
+                android:checked="@={login.remPwd}"/>
 
             <EditText
                 android:id="@+id/passwordV"
@@ -76,7 +77,7 @@
                 android:layout_marginEnd="60dp"
                 android:background="#22000000"
                 android:padding="10dp"
-                android:text="@={viewModel.password}"
+                android:text="@={login.password}"
                 android:hint="请输入密码"
                 android:inputType="numberPassword"
                 android:maxLines="1"
@@ -97,7 +98,7 @@
                 android:layout_marginEnd="60dp"
                 android:background="#22000000"
                 android:padding="10dp"
-                android:text="@={viewModel.account}"
+                android:text="@={login.account}"
                 android:hint="请输入用户名"
                 android:maxLines="1"
                 android:singleLine="true"

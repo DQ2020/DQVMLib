@@ -6,7 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.open.dqmvvm.databinding.ItemVmBinding;
+import com.open.dqmvvm.main.VMItem;
 
 /**
  * Created by Tink.Dan on 2018/1/5.
@@ -31,6 +35,10 @@ public class BaseHolder extends RecyclerView.ViewHolder {
         return new BaseHolder(context, itemView);
     }
 
+    public void bind(Object o){
+        ((ItemVmBinding)DataBindingUtil.bind(itemView)).setLifecycleOwner((BaseActivity)mContext);
+        ((ItemVmBinding)DataBindingUtil.bind(itemView)).setItem((VMItem) o);
+    }
 
     /**
      * 通过viewId获取控件

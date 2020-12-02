@@ -5,11 +5,11 @@ import com.open.dqmvvm.constant.Constant.TAG
 
 object L{
 
-    fun d(d:String){
-        Log.d(TAG,d)
+    fun d(d:String?){
+        Log.d(TAG,d?:"null")
     }
 
-    fun e(e:String){
-        Log.e(TAG,e)
+    fun e(e:String?){
+        Log.e(TAG,e?:"null")
     }
 }

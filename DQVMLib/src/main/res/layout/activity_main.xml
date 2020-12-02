@@ -7,7 +7,7 @@
     <data>
         <variable
             name="m"
-            type="com.open.dqmvvm.login.LoginVM" />
+            type="com.open.dqmvvm.main.MainVM" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.movit.dqtest">
 
+
+    <uses-permission android:name="android.permission.CAMERA"/>
     <application
         android:name=".TestApp"
         android:allowBackup="false"

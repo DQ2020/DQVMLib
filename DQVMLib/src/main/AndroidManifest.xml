@@ -2,10 +2,37 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.open.dqmvvm">
 
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
 
     <application>
-        <activity android:name=".test.TestActivity"></activity>
+        <activity android:name=".player.GLSv"></activity>
+        <activity android:name=".picture.PictureListActivity"></activity>
+        <activity android:name=".player.AudioPlayer" />
+        <activity android:name=".coroutines.CoroutinesActivity" />
+        <activity android:name=".test.TestActivity" />
+        <activity android:name=".file.FileSystem" />
+        <activity android:name=".player.CameraPlayer" />
+        <activity android:name=".player.Triangle" />
+        <activity android:name=".player.TriangleColor" />
+        <activity android:name=".player.TriangleColorMore" />
+        <activity android:name=".player.Rect" />
+        <activity android:name=".player.TriangleRec" />
+        <activity android:name=".player.TriangleRec2" />
+        <activity android:name=".player.TriangleImg" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.open.dqmvvm.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/picture" />
+        </provider>
     </application>
 
 </manifest>

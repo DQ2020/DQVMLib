@@ -7,18 +7,18 @@
             4.key不可重复（null键最多一个）value可重复
             5.线程不安全
             6.数据结构
-            6.1长度默认为16的entry[]
-            6.2entry[]中存储长度默认为8的链表的头元素
-            6.3扩容 链表长度变为2n
-            6.4jdk1.8后 扩容为 链表长度超过8变为红黑树（插入删除性能高，查询一般）
-            7.多线程可使用ConcurrentHashMap或者Collections.synchronizedMap()加锁
+                6.1长度默认为16的entry[]
+                6.2entry[]中存储长度默认为8的链表的头元素
+                6.3扩容 链表长度变为2n
+                6.4jdk1.8后 扩容为 链表长度超过8变为红黑树（插入删除性能高，查询一般）
+            7.多线程可使用ConcurrentHashMap或者Collections.synchronizedMap()加锁[重点]
         LinkedHashMap
             1.比HashMap Entry变成了双向列表,不光有next还添加了before和after
-            1.1next为同一数组中单向链表的顺序指向 a[0][0]->a[0][8]
-            1.2before和after为双向链表顺序，即a[0][0]->a[1][0]-a[8][0]-a[0][1]-a[1][1]-a[8][1]-a[8][8]
+                1.1next为同一数组中单向链表的顺序指向 a[0][0]->a[0][8]
+                1.2before和after为双向链表顺序，即a[0][0]->a[1][0]-a[8][0]-a[0][1]-a[1][1]-a[8][1]-a[8][8]
         HashTable
             1.键值均不可null
-            2.线程安全
+            2.线程安全[效率低下]
         TreeMap
             1.自动排序（Ascll码升序）
 

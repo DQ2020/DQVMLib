@@ -1,116 +1,68 @@
 package com.open.dqmvvm.coroutines
 
+import io.reactivex.disposables.Disposable
 import kotlinx.coroutines.*
+import java.net.ServerSocket
 
-class Coroutines {
-}
+fun main() {
+    println("start Coroutines 1")
+    runBlocking(Dispatchers.IO) {
+        delay(1000)
+        println("in Coroutines 1")
+    }
+    println("start Coroutines 1 end")
+    println("runBlocking启动的协程任务会阻断当前线程，直到该协程执行结束")
+    println()
 
+    println("start Coroutines 2")
+    val launch = GlobalScope.launch(Dispatchers.IO, CoroutineStart.LAZY) {
+        println("in Coroutines 2 before")
+        delay(3000)
+        println("in Coroutines 2 after")
+    }
+    println("start Coroutines 2 end")
+    launch.start()
+    Thread.sleep(1000)
+    launch.cancel()
+    println("cancel Coroutines 2  so without after")
+    println()
 
-//fun main(){
-//    //开启一个协程
-//    println("main start")
-//    val job = GlobalScope.launch {
-//        delay(3000L)
-//        println("GlobalScope.launch")
-//        delay(3000L)
-//    }
-//    println("main() after GlobalScope.launch")
-//    runBlocking {
-//        println("runBlocking start")
-//        delay(10000L)
-//        println("runBlocking end")
-//    }
-//    println("main() after runBlocking")
-//}
-//        main start
-//        main() after GlobalScope.launch
-//        runBlocking start
-//        GlobalScope.launch
-//        runBlocking end
-//        main() after runBlocking
-
-
-//fun main(){
-//    //开启一个协程
-//    println("main start")
-//    val job = GlobalScope.launch {
-//        delay(3000L)
-//        println("GlobalScope.launch")
-//        delay(3000L)
-//    }
-//    println("main() after GlobalScope.launch")
-//     job.join()
-//}
-
-//fun main() = runBlocking {
-//    //开启一个协程
-//    println("main start")
-//    launch {
-//        delay(3000L)
-//        println("GlobalScope.launch")
-//        delay(3000L)
-//    }
-//    println("main() after GlobalScope.launch")
-//}
-
-//fun main() = runBlocking { // this: CoroutineScope
-//    launch {
-//        delay(200L)
-//        println("Task from runBlocking")
-//    }
-//
-//    coroutineScope { // 创建一个协程作用域
-//        launch {
-//            delay(500L)
-//            println("Task from nested launch")
-//        }
-//
-//        delay(100L)
-//        println("Task from coroutine scope") // 这一行会在内嵌 launch 之前输出
-//    }
-//
-//    println("Coroutine scope is over") // 这一行在内嵌 launch 执行完毕后才输出
-//}
-
-fun main() = runBlocking {
-    val job = launch(Dispatchers.Default) {
-        var i = 0
-        while(i<100000 && isActive){
-                print(i++)
+    println("start Coroutines 3")
+    GlobalScope.launch {
+        println("start Coroutines 33")
+        val async = GlobalScope.async(Dispatchers.IO, CoroutineStart.DEFAULT) {
+            delay(3000)
+            "GlobalScope.async"
         }
-    }
-    delay(5L)
-    job.cancelAndJoin()
-    println("stop")
 
-    var a = Person("a",1)
-    var b = Person("b",2)
-    a = b.also {
-        b=a
+        val async2 = GlobalScope.async(Dispatchers.IO, CoroutineStart.DEFAULT) {
+            delay(5000)
+            "GlobalScope.async2"
+        }
+        println(async.await() + async2.await())
+        println()
+        println("start Coroutines 33 end")
     }
-    println(a)
-    println(b)
+    println("start Coroutines 3 end")
+
+    while (true){
+    }
 }
 
-data class Person(var name:String,var age:Int)
+suspend fun wait(n:Long):String{
+    delay(n)
+    return n.toString()
+}
 
 
-//fun main() = runBlocking {
-//
-//    val job = launch(Dispatchers.Default) {
-//        val startTime = System.currentTimeMillis()
-//        var nextPrintTime = startTime
-//        var i = 0
-//        while (i < 10) { // 一个执行计算的循环，只是为了占用 CPU
-//            // 每秒打印消息两次
-//            if (System.currentTimeMillis() >= nextPrintTime) {
-//                println("job: I'm sleeping ${i++} ...")
-//                nextPrintTime += 1000L
-//            }
-//        }
-//    }
-//    delay(5000L) // 等待一段时间
-//    println("main: I'm tired of waiting!")
-//    job.cancelAndJoin() // 取消一个作业并且等待它结束
-//    println("main: Now I can quit.")
-//}
+fun testServerSocket(){
+    val ss = ServerSocket(2020)
+    println("ServerSocket accept")
+    val s = ss.accept()
+    val ins = s.getInputStream()
+    val bytes = ByteArray(1024)
+    while (true){
+        ins.read(bytes)
+        println(String(bytes,0,10))
+    }
+}

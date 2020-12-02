@@ -8,6 +8,7 @@ import java.util.concurrent.Future;
 public class Test {
 
     public static void main(String[] args) {
+
         System.out.println(Thread.currentThread().getName());
         System.out.println("start");
         ExecutorService executorService = Executors.newFixedThreadPool(10);
@@ -38,7 +39,6 @@ public class Test {
         try {
             System.out.println(Thread.currentThread().getName());
             System.out.println(submit1.get());
-        } catch (Exception e) {
-        }
+        } catch (Exception e) {}
     }
 }

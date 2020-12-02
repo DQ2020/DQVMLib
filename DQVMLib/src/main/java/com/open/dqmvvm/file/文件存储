@@ -1,0 +1,17 @@
+android文件系统
+内存
+    相当于PC的内存
+
+内部存储
+    相当于PC的内置硬盘
+    data／data／包名／路径
+    默认创建cache, 使用时可能产生shared_prefs,databases,webView缓存目录等
+    getFilesDir():data／data／包名／files/  调用时默认创建
+    getCacheDir():返回cache[内部存储不足 cache可能被删除]
+    优化点：监控cache大小 触发清理操作 [不可依托系统删除:不可预期]
+
+外部存储相当于移动硬盘
+    公共目录
+        storage/emulated/0
+    私有目录
+        /storage/emulated/0/Android/data/com.movit.dqtest/files/1[随app卸载而删除]

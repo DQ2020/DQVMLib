@@ -47,6 +47,7 @@ abstract class BaseWebView : WebView {
         settings.databaseEnabled = true
         settings.javaScriptEnabled = true
         settings.allowFileAccess = true
+        settings.textZoom = 100
         val dir = context.filesDir.absolutePath + "/cache"
         settings.setGeolocationEnabled(true)
         settings.setAppCachePath(dir) //设置AppCaches缓存路径

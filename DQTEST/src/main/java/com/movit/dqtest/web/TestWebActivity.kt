@@ -35,7 +35,7 @@ class TestWebActivity : BaseWebActivity<ActivityTestWebBinding, TestWebVM>() {
         (window.decorView as ViewGroup).addView(Button(this).apply {
             layoutParams = ViewGroup.LayoutParams(300,300)
             setOnClickListener {
-                ARouter.getInstance().build("/lib/test").navigation()
+                ARouter.getInstance().build("/lib/triangle3").navigation()
             }
         })
     }

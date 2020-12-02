@@ -3,7 +3,7 @@ package com.open.dqmvvm.annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 
-public class AutoInit {
+class AutoInit {
 
     AutoInit() {
         System.out.println("AutoInit");

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:scaleType="fitXY">
+
+    <ImageView
+        android:id="@+id/pic"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:scaleType="fitXY" />
+
+    <ImageView
+        android:id="@+id/flag"
+        android:paddingEnd="3dp"
+        android:paddingStart="13dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="13dp"
+        android:src="@drawable/selector_picture"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:scaleType="centerInside" />
+</RelativeLayout>

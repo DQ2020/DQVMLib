@@ -1,0 +1,73 @@
+多线程
+    1.线程池的好处？
+        1.1线程复用,省去新建销毁线程的资源消耗,效率更高
+        1.2线程池api提高开发效率
+    2.四种线程池的使用场景
+        FixedThreadPool：任务量比较固定但耗时长的任务 可以控制线程的最大并发数
+        CachedThreadPool：任务量大但耗时少的任务
+        ScheduledThreadPool：定时任务和具体固定周期的重复任务
+        SingleThreadPool：多个任务顺序执行的场景
+    3.线程池的几个参数的理解？
+        ex:
+            ThreadPoolExecutor mExecutor = new ThreadPoolExecutor(corePoolSize,// 核心线程数
+            						maximumPoolSize, // 最大线程数
+            						keepAliveTime, // 闲置线程存活时间
+            						TimeUnit.MILLISECONDS,// 时间单位
+            						new LinkedBlockingDeque<Runnable>(),// 线程队列
+            						Executors.defaultThreadFactory(),// 线程工厂
+            						new AbortPolicy()// 队列已满,而且当前线程数已经超过最大线程数时的异常处理策略
+            				);
+
+        3.1 corePoolSize:核心线程数
+                无任务时不会销毁
+        3.2 maximumPoolSize：最大线程数
+                核心+缓存线程数量
+                大于核心线程数且小于最大线程数时会启动缓存线程
+                缓存线程在无任务且超过keepAliveTime时间时会销毁
+        3.3 workQueue:工作对列
+                超过最大线程数时任务会被加入队列等待空闲线程执行
+        3.4 RejectedExecutionHandler 缓存队列任务超出时处理策略
+                CallerRunsPolicy：提交任务的线程自己执行
+                AbortPolicy：抛异常
+                DiscardPolicy：丢弃新任务
+                DiscardOldestPolicy：队列中最前面的任务
+
+    4.Android中还了解哪些方便线程切换的类？
+        4.1AsyncTask
+            asyncTask是对Handler与线程池的封装
+            asyncTask线程池参数：
+                private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
+                private static final int CORE_POOL_SIZE = CPU_COUNT + 1;
+                private static final int MAXIMUM_POOL_SIZE = CPU_COUNT * 2 + 1;
+                private static final int KEEP_ALIVE = 1;
+                结论：asyncTask使用FixedThreadPool类型线程池
+        4.2IntentService
+            一个内部维护了一个工作线程(HandlerThread)的service
+        4.3HandlerThread
+            一个含有Looper的线程
+                Looper
+                    与线程1对1
+                    用于循环消息队列
+            结论：一个可以顺序执行n个任务的工作线程，可手动停止
+    5.直接在Activity中创建一个thread跟在service中创建一个thread之间的区别
+        Activity和Service的差别  生命周期 内存泄漏 相关
+        这里还没写完
+
+
+
+
+    ThreadPoolExecutor的工作策略 ？
+    Handler、Thread和HandlerThread的差别？
+    ThreadLocal的原理
+    多线程是否一定会高效（优缺点）
+    多线程中,让你做一个单例,你会怎么做
+    除了notify还有什么方式可以唤醒线程
+    什么是ANR ? 什么情况会出现ANR ？如何避免 ？ 在不看代码的情况下如何快速定位出现ANR问题所在 ？
+    可重入锁的实现，公平锁非公平锁都是什么定义？
+    说说Android中线程池的实现
+    进程线程在操作系统中的实现
+    安卓线程间通信有哪几种方式
+    能在子线程创建handler嘛？有什么要注意的吗？
+    说一下为什么要用线程池？线程池的几个参数，以及它是怎么工作的？核心线程数一般有多少？
+    Android多线程的实现方式有哪些?
+    Android开发中何时使用多进程？使用多进程的好处是什么？

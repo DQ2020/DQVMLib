@@ -14,12 +14,10 @@ class TestWebView : BaseWebView {
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
     }
 
-    override fun methodsBody(): Any {
-        return {
-            @JavascriptInterface
-            fun version(): String {
-                return BuildConfig.VERSION_NAME
-            }
+    override fun methodsBody(): Any = {
+        @JavascriptInterface
+        fun version(): String {
+            return BuildConfig.VERSION_NAME
         }
     }
 }

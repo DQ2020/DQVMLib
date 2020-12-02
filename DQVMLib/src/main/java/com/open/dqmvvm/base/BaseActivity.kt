@@ -19,6 +19,8 @@ abstract class BaseActivity<BD : ViewDataBinding, VM : BaseViewModel> : AppCompa
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
+                android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         bind = DataBindingUtil.setContentView(this, getView())
         bind.lifecycleOwner = this
         bind.setVariable(getVmId(), vm)
